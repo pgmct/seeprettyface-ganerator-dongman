@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 import PIL.Image
 import dnnlib.tflib as tflib
-
+import sys
 synthesis_kwargs = dict(output_transform=dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True), minibatch_size=8)
 
 def text_save(file, data):  # save generate code, which can be modified to generate customized style
@@ -36,7 +36,7 @@ def main():
     Gs.print_layers()
 
     # Generate pictures
-    generate_num = 20
+    generate_num = sys.argv[1]
     for i in range(generate_num):
 
         # Generate latent.
