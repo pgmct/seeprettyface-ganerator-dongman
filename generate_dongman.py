@@ -21,11 +21,12 @@ def main():
     # Initialize TensorFlow.
     tflib.init_tf()
 
-    # Load pre-trained network.
-    model_path = 'model/generator_dongman.pkl'
+    # Load pre-trained network. Select the pkl filename
+    model_path = '/content/seeprettyface-ganerator-dongman/model/'+sys.argv[1]
+    print(model_path)
 
     # Prepare result folder
-    result_dir = 'result'
+    result_dir = '/content/drive/MyDrive/seeprettyface/result'
     os.makedirs(result_dir, exist_ok=True)
     os.makedirs(result_dir + '/generate_code', exist_ok=True)
 
@@ -36,7 +37,7 @@ def main():
     Gs.print_layers()
 
     # Generate pictures
-    generate_num = sys.argv[1]
+    generate_num = int(sys.argv[2])
     for i in range(generate_num):
 
         # Generate latent.
