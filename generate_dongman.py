@@ -9,7 +9,7 @@ import pickle
 import numpy as np
 import PIL.Image
 import dnnlib.tflib as tflib
-import sys
+import sys #inputs: pkl filename, number of images, output results path
 synthesis_kwargs = dict(output_transform=dict(func=tflib.convert_images_to_uint8, nchw_to_nhwc=True), minibatch_size=8)
 
 def text_save(file, data):  # save generate code, which can be modified to generate customized style
@@ -26,7 +26,8 @@ def main():
     print(model_path)
 
     # Prepare result folder
-    result_dir = '/content/drive/MyDrive/seeprettyface/result'
+    #result_dir = '/content/drive/MyDrive/seeprettyface/result'
+    result_dir = sys.argv[3]
     os.makedirs(result_dir, exist_ok=True)
     os.makedirs(result_dir + '/generate_code', exist_ok=True)
 
