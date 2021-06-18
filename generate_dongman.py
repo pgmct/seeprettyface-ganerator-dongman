@@ -40,7 +40,7 @@ def main():
     # Generate pictures
     generate_num = int(sys.argv[2])
     for i in range(generate_num):
-
+        print("Generate number:", generate_num)
         # Generate latent.
         latents = np.random.randn(1, Gs.input_shape[1])
 
